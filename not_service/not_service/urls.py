@@ -19,6 +19,7 @@ from django.urls import path, include
 from rest_framework import routers
 
 from mailing_app.views import ClientViewSet, MessageViewSet, MailingViewSets
+from .yasg import swaggerurlpatterns
 
 Router = routers.DefaultRouter()
 Router.register(r'clients', ClientViewSet)
@@ -30,3 +31,5 @@ urlpatterns = [
     path('api/', include(Router.urls)),
     path('api-auth', include('rest_framework.urls'))
 ]
+
+urlpatterns += swaggerurlpatterns
